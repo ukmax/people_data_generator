@@ -1,11 +1,19 @@
-import  java.io.*;
-import  org.apache.poi.hssf.usermodel.HSSFSheet;
-import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import  org.apache.poi.hssf.usermodel.HSSFRow;
+import java.io.*;
+import java.util.ArrayList;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFRow;
 
 public class CreateXlsFile {
-    public static void main(String[]args) {
-        String filename = "D:/MyFile.xls" ;
+    public static void main(String[] args) {
+        int n = 5;
+        ArrayList<String> male_surnames = PeopleData.get_male_surnames();
+        ArrayList<String> male_names = PeopleData.get_male_names();
+        ArrayList<String> male_middle_names = PeopleData.get_male_middle_names();
+
+
+        String filename = "./out/RandomPeopleData.xls";
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("First");
 
@@ -15,11 +23,16 @@ public class CreateXlsFile {
         header.createCell(2).setCellValue("Имя");
         header.createCell(3).setCellValue("Отчество");
 
-        HSSFRow row = sheet.createRow(1);
-        row.createCell(0).setCellValue("1");
-        row.createCell(1).setCellValue("Петров");
-        row.createCell(2).setCellValue("Иван");
-        row.createCell(3).setCellValue("Васильевич");
+
+        for (int i = 1; i <= n; i++) {
+            HSSFRow row = sheet.createRow(i);
+            row.createCell(0).setCellValue(i);
+            row.createCell(1).setCellValue(PeopleData.get_random_list_value(male_surnames));
+            row.createCell(2).setCellValue(PeopleData.get_random_list_value(male_names));
+            row.createCell(3).setCellValue(PeopleData.get_random_list_value(male_middle_names));
+        }
+
+
         try {
             FileOutputStream fileOut = new FileOutputStream(filename);
             workbook.write(fileOut);
