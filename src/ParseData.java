@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ParseData {
-    public static ArrayList<String> getlist(String path) {
+    public static ArrayList<String> getList(String path) {
         ArrayList<String> list = new ArrayList<>();
         try {
             File file = new File(path);

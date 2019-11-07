@@ -1,11 +1,10 @@
 import java.io.*;
-import java.util.ArrayList;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 
-public class CreateXlsFile {
+public class XlsFile {
     public static void main(String[] args) {
 
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -35,22 +34,23 @@ public class CreateXlsFile {
     }
 
     public static void createDataRow(HSSFSheet sheet) {
-        int n = 5;
+        int n = 50;
         for (int i = 1; i <= n; i++) {
-            ArrayList<String> male_surnames = HumanData.get_male_surnames();
-            ArrayList<String> male_names = HumanData.get_male_names();
-            ArrayList<String> male_middle_names = HumanData.get_male_middle_names();
-
             HSSFRow row = sheet.createRow(i);
-            row.createCell(0).setCellValue(HumanData.get_random_list_value(male_surnames));
-            row.createCell(1).setCellValue(HumanData.get_random_list_value(male_names));
-            row.createCell(2).setCellValue(HumanData.get_random_list_value(male_middle_names));
+            Person person = new Person();
+            HumanDates dates = new HumanDates();
+            row.createCell(0).setCellValue(person.surname);
+            row.createCell(1).setCellValue(person.name);
+            row.createCell(2).setCellValue(person.middleName);
+            row.createCell(3).setCellValue(dates.age);
+            row.createCell(4).setCellValue(person.gender.toString());
+            row.createCell(5).setCellValue(dates.birthday);
         }
     }
 
     public static void createXlsFile(HSSFWorkbook workbook) {
         try {
-            String filename = "humans_data1.xls";
+            String filename = "humans_data.xls";
             String filepath = "./out/";
             File xlsFile = new File(filepath + filename);
             FileOutputStream fileOut = new FileOutputStream(xlsFile);
