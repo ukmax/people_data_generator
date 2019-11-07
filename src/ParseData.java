@@ -10,9 +10,9 @@ public class ParseData {
         try {
             File file = new File(path);
             //создаем объект FileReader для объекта File
-            FileReader fr = new FileReader(file);
+            FileReader fileReader = new FileReader(file);
             //создаем BufferedReader с существующего FileReader для построчного считывания
-            BufferedReader reader = new BufferedReader(fr);
+            BufferedReader reader = new BufferedReader(fileReader);
             // считаем сначала первую строку
             String line = reader.readLine();
             while (line != null) {
