@@ -12,16 +12,17 @@ public class Person {
 
     public Person() {
         this.gender = Gender.values()[new Random().nextInt(Gender.values().length)];
-        if (this.gender == Gender.FEMALE) {
-            this.surname = "Петрова";
-            this.name = "Мария";
-            this.middleName = "Семеновна";
-        }
         if (this.gender == Gender.MALE) {
-            this.surname = "Воронцов";
-            this.name = "Николай";
-            this.middleName = "Петрович";
+            this.surname = HumanInfo.getRandomMaleSurname();
+            this.name = HumanInfo.getRandomMaleName();
+            this.middleName = HumanInfo.getRandomMaleMiddleName();
         }
+        if (this.gender == Gender.FEMALE) {
+            this.surname = HumanInfo.getRandomFemaleSurname();
+            this.name = HumanInfo.getRandomFemaleName();
+            this.middleName = HumanInfo.getRandomFemaleMiddleName();
+        }
+
     }
 
 //    public static void main(String[] args) {
