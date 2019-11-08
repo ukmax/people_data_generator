@@ -34,7 +34,7 @@ public class XlsFile {
     }
 
     public static void createDataRow(HSSFSheet sheet) {
-        int n = 50;
+        int n = 30;
         for (int i = 1; i <= n; i++) {
             HSSFRow row = sheet.createRow(i);
             Person person = new Person();
@@ -45,6 +45,14 @@ public class XlsFile {
             row.createCell(3).setCellValue(dates.age);
             row.createCell(4).setCellValue(person.gender.toString());
             row.createCell(5).setCellValue(dates.birthday);
+            row.createCell(6).setCellValue(HumanInfo.getRandomCity());
+            row.createCell(7).setCellValue(HumanInfo.getRandomIndex());
+            row.createCell(8).setCellValue("Россия");
+            row.createCell(9).setCellValue(HumanInfo.getRandomRegion());
+            row.createCell(10).setCellValue(HumanInfo.getRandomCity());
+            row.createCell(11).setCellValue(HumanInfo.getRandomStreet());
+            row.createCell(12).setCellValue(HumanInfo.getRandomHouse());
+            row.createCell(13).setCellValue(HumanInfo.getRandomFlat());
         }
     }
 
