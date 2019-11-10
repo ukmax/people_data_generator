@@ -46,14 +46,14 @@ public class XlsFile {
             row.createCell(3).setCellValue(dates.age);
             row.createCell(4).setCellValue(person.gender.getDescription());
             row.createCell(5).setCellValue(dates.getBirthday());
-            row.createCell(6).setCellValue(HumanInfo.getRandomCity());
-            row.createCell(7).setCellValue(HumanInfo.getRandomIndex());
-            row.createCell(8).setCellValue(HumanInfo.getRandomCountry());
-            row.createCell(9).setCellValue(HumanInfo.getRandomRegion());
-            row.createCell(10).setCellValue(HumanInfo.getRandomCity());
-            row.createCell(11).setCellValue(HumanInfo.getRandomStreet());
-            row.createCell(12).setCellValue(HumanInfo.getRandomHouse());
-            row.createCell(13).setCellValue(HumanInfo.getRandomFlat());
+            row.createCell(6).setCellValue(AddressInfo.getRandomCity());
+            row.createCell(7).setCellValue(AddressInfo.getRandomIndex());
+            row.createCell(8).setCellValue(AddressInfo.getRandomCountry());
+            row.createCell(9).setCellValue(AddressInfo.getRandomRegion());
+            row.createCell(10).setCellValue(AddressInfo.getRandomCity());
+            row.createCell(11).setCellValue(AddressInfo.getRandomStreet());
+            row.createCell(12).setCellValue(AddressInfo.getRandomHouse());
+            row.createCell(13).setCellValue(AddressInfo.getRandomFlat());
         }
     }
 

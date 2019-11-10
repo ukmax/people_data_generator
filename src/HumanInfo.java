@@ -27,48 +27,8 @@ public class HumanInfo {
         return getRandomValue(ParsedData.getFemaleMiddleNames());
     }
 
-    public static String getRandomCity() {
-        return getRandomValue(ParsedData.getCities());
-    }
-
-    public static String getRandomCountry() {
-        return getRandomValue(ParsedData.getСountry());
-    }
-
-    public static String getRandomRegion() {
-        return getRandomValue(ParsedData.getRegions());
-    }
-
-    public static String getRandomStreet() {
-        return getRandomValue(ParsedData.getStreets());
-    }
-
-
-    private static String getRandomValue(ArrayList<String> list) {
-        Random randomGenerator = new Random();
-        int index = randomGenerator.nextInt(list.size());
-        return list.get(index);
-    }
-
-    public static int getRandomHouse() {
-        Random randomGenerator = new Random();
-        return 1 + randomGenerator.nextInt(99);
-    }
-
-    public static int getRandomFlat() {
-        Random randomGenerator = new Random();
-        return 1 + randomGenerator.nextInt(999);
-    }
-
-    public static String getRandomIndex() {
-        Random randomGenerator = new Random();
-        String index = "";
-        for (int i = 1; i < 7; i++) {
-            int digit = randomGenerator.nextInt(10);
-            index = index + digit;
-        }
-        return index;
-
+    public static Gender getRandomGender() {
+        return Gender.values()[new Random().nextInt(Gender.values().length)];
     }
 
     public enum Gender {
@@ -86,10 +46,9 @@ public class HumanInfo {
         }
     }
 
-    public static Gender getRandomGender() {
-        return Gender.values()[new Random().nextInt(Gender.values().length)];
-
+    private static String getRandomValue(ArrayList<String> list) {
+        Random randomGenerator = new Random();
+        int index = randomGenerator.nextInt(list.size());
+        return list.get(index);
     }
-
-
 }
