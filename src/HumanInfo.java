@@ -50,15 +50,14 @@ public class HumanInfo {
         return list.get(index);
     }
 
-    //TODO: дом и квартира не могут быть 0
     public static int getRandomHouse() {
         Random randomGenerator = new Random();
-        return randomGenerator.nextInt(100);
+        return 1 + randomGenerator.nextInt(99);
     }
-    //TODO: дом и квартира не могут быть 0
+
     public static int getRandomFlat() {
         Random randomGenerator = new Random();
-        return randomGenerator.nextInt(1000);
+        return 1 + randomGenerator.nextInt(999);
     }
 
     public static String getRandomIndex() {
@@ -87,7 +86,7 @@ public class HumanInfo {
         }
     }
 
-    public static Gender getRandomGender(){
+    public static Gender getRandomGender() {
         return Gender.values()[new Random().nextInt(Gender.values().length)];
 
     }
