@@ -33,6 +33,10 @@ public class ParsedData {
         return getListFromFile("./data/cities");
     }
 
+    public static ArrayList<String> getСountry() {
+        return getListFromFile("./data/countries");
+    }
+
     public static ArrayList<String> getRegions() {
         return getListFromFile("./data/regions");
     }

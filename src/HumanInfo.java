@@ -31,6 +31,10 @@ public class HumanInfo {
         return getRandomValue(ParsedData.getCities());
     }
 
+    public static String getRandomCountry() {
+        return getRandomValue(ParsedData.getСountry());
+    }
+
     public static String getRandomRegion() {
         return getRandomValue(ParsedData.getRegions());
     }
@@ -46,11 +50,12 @@ public class HumanInfo {
         return list.get(index);
     }
 
+    //TODO: дом и квартира не могут быть 0
     public static int getRandomHouse() {
         Random randomGenerator = new Random();
         return randomGenerator.nextInt(100);
     }
-
+    //TODO: дом и квартира не могут быть 0
     public static int getRandomFlat() {
         Random randomGenerator = new Random();
         return randomGenerator.nextInt(1000);
@@ -64,6 +69,26 @@ public class HumanInfo {
             index = index + digit;
         }
         return index;
+
+    }
+
+    public enum Gender {
+        MALE("МУЖ"),
+        FEMALE("ЖЕН");
+
+        private String description;
+
+        private Gender(String description) {
+            this.description = description;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
+    public static Gender getRandomGender(){
+        return Gender.values()[new Random().nextInt(Gender.values().length)];
 
     }
 

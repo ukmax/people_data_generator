@@ -14,6 +14,7 @@ public class XlsFile {
         createXlsFile(workbook);
     }
 
+
     public static void createHeader(HSSFSheet sheet) {
         HSSFRow header = sheet.createRow(0);
         header.createCell(0).setCellValue("Фамилия");
@@ -43,11 +44,11 @@ public class XlsFile {
             row.createCell(1).setCellValue(person.name);
             row.createCell(2).setCellValue(person.middleName);
             row.createCell(3).setCellValue(dates.age);
-            row.createCell(4).setCellValue(person.gender.toString());
-            row.createCell(5).setCellValue(dates.birthday);
+            row.createCell(4).setCellValue(person.gender.getDescription());
+            row.createCell(5).setCellValue(dates.getBirthday());
             row.createCell(6).setCellValue(HumanInfo.getRandomCity());
             row.createCell(7).setCellValue(HumanInfo.getRandomIndex());
-            row.createCell(8).setCellValue("Россия");
+            row.createCell(8).setCellValue(HumanInfo.getRandomCountry());
             row.createCell(9).setCellValue(HumanInfo.getRandomRegion());
             row.createCell(10).setCellValue(HumanInfo.getRandomCity());
             row.createCell(11).setCellValue(HumanInfo.getRandomStreet());
