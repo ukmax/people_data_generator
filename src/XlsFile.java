@@ -1,11 +1,17 @@
 import java.io.*;
+import java.util.Scanner;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 
 public class XlsFile {
+    public static int numberOfStrings;
+
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите количество строк для генерации: ");
+        numberOfStrings = in.nextInt();
 
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("First sheet");
@@ -35,8 +41,7 @@ public class XlsFile {
     }
 
     public static void createDataRow(HSSFSheet sheet) {
-        int n = 30;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= numberOfStrings; i++) {
             HSSFRow row = sheet.createRow(i);
             Person person = new Person();
             HumanDates dates = new HumanDates();
