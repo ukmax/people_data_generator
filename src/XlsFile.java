@@ -17,6 +17,7 @@ public class XlsFile {
         HSSFSheet sheet = workbook.createSheet("First sheet");
         createHeader(sheet);
         createDataRow(sheet);
+        autoSizeColumns(sheet);
         createXlsFile(workbook);
     }
 
@@ -59,6 +60,13 @@ public class XlsFile {
             row.createCell(11).setCellValue(AddressInfo.getRandomStreet());
             row.createCell(12).setCellValue(AddressInfo.getRandomHouse());
             row.createCell(13).setCellValue(AddressInfo.getRandomFlat());
+        }
+    }
+
+    private static void autoSizeColumns(HSSFSheet sheet) {
+        int columnNumber = sheet.getRow(0).getLastCellNum();
+        for (int i = 0; i <= columnNumber; i++){
+            sheet.autoSizeColumn(i);
         }
     }
 
