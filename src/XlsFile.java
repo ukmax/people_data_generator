@@ -9,10 +9,7 @@ public class XlsFile {
     public static int numberOfStrings;
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите количество строк для генерации: ");
-        numberOfStrings = in.nextInt();
-
+        inputStringNumber();
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("First sheet");
         createHeader(sheet);
@@ -21,6 +18,17 @@ public class XlsFile {
         createXlsFile(workbook);
     }
 
+    public static void inputStringNumber(){
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Введите количество строк для генерации (от 1 до 30): ");
+            while (!sc.hasNextInt()) {
+                System.out.println("Введено не число.");
+                sc.next();
+            }
+            numberOfStrings = sc.nextInt();
+        } while (numberOfStrings <= 0 || numberOfStrings > 30);
+    }
 
     public static void createHeader(HSSFSheet sheet) {
         HSSFRow header = sheet.createRow(0);
@@ -72,7 +80,7 @@ public class XlsFile {
 
     public static void createXlsFile(HSSFWorkbook workbook) {
         try {
-            String filename = "humans_data.xls";
+            String filename = "humans.xls";
             String filepath = "./out/";
             File xlsFile = new File(filepath + filename);
             FileOutputStream fileOut = new FileOutputStream(xlsFile);
